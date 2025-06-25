@@ -25,22 +25,27 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .chart-container { position: relative; width: 100%; max-width: 350px; margin-left: auto; margin-right: auto; height: 350px; }
-        .modal-bg {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 40;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            max-height: 80vh;
-            overflow-y: auto;
-        }
+        
+.modal-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 1rem;
+}
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+}
+
         .status-dot {
             width: 10px;
             height: 10px;
@@ -107,7 +112,7 @@
     </div>
 
     <div id="email-modal" class="modal-bg">
-        <div class="bg-white rounded-xl shadow-2xl w-11/12 md:max-w-2xl lg:max-w-3xl m-4">
+        <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-3xl mx-auto">
             <div class="p-6 border-b border-slate-200 flex justify-between items-center">
                 <h3 id="modal-title" class="text-2xl font-bold">Invitation Email Draft</h3>
                 <button id="close-modal" class="text-slate-500 hover:text-slate-800">&times;</button>

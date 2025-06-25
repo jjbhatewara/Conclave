@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iConclave: Innovate & Elevate - Event Details</title>
+    <!-- Chosen Palette: Slate & Amber -->
+    <!-- Application Structure Plan: The SPA is divided into two main, navigable sections: 'Buzz Event' and 'Event Timeline & Schedule'. The 'Buzz Event' section aims to engage and inform students about iConclave's value proposition, featuring an inviting narrative and a clear call to action. The 'Event Timeline & Schedule' section provides a structured, chronological breakdown of the event phases and activities, utilizing an accordion pattern for detailed schedules within each phase to enhance clarity and manage information density. This structure was chosen to first capture user interest and then provide organized, digestible logistical information, facilitating easy exploration and understanding of the event's flow. -->
+    <!-- Visualization & Content Choices:
+        - Report Info: Event introduction, purpose, and detailed schedule/timeline.
+        - Goal: Inform students, generate excitement, provide clear schedule information.
+        - Viz/Presentation Method:
+            - Buzz Event: Large, engaging text blocks with strong headings, bullet points, and a clear call-to-action button. No complex visualizations, as the goal is narrative persuasion.
+            - Event Timeline: Chronological list of event phases. Each phase features an interactive accordion/collapsible section that reveals a detailed schedule.
+        - Interaction:
+            - Smooth scrolling navigation to sections.
+            - Accordion functionality for timeline details: Clicking a phase title expands/collapses its detailed schedule, allowing users to focus on relevant information without visual clutter.
+            - "Register Interest" button for Buzz Event (placeholder).
+        - Justification: The narrative intro sets the stage emotionally, while the interactive timeline provides practical, organized information crucial for participation. The accordion is ideal for managing a multi-stage schedule on a single page.
+        - Library/Method: Vanilla JS, Tailwind CSS. No Chart.js or Plotly.js are used as the content is primarily textual and sequential, not quantitative data requiring charting.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .accordion-content.active {
+            max-height: 500px; /* Adjust based on max content height */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .accordion-header:hover {
+            background-color: #f0f4f8; /* slate-100 */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="bg-slate-800 text-white p-4 shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-amber-300 hover:text-amber-400">iConclave</a>
+            <div class="space-x-4">
+                <a href="#buzz-event" class="hover:text-amber-300 transition-colors duration-200">Buzz Event</a>
+                <a href="#timeline" class="hover:text-amber-300 transition-colors duration-200">Timeline & Schedule</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <!-- Buzz Event Section -->
+        <section id="buzz-event" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 text-center">iConclave: Innovate & Elevate - Your Blueprint to Startup Stardom</h2>
+            <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                Welcome, MBA (Innovation & Entrepreneurship) batch! Get ready for **iConclave**, your premier opportunity to transform your entrepreneurial dreams into reality. This isn't just another event; it's a direct bridge to the minds behind India's most disruptive startups – the very founders who've impressed the Sharks on national television.
+            </p>
+            <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                We're creating an unparalleled platform where theoretical knowledge meets real-world investment acumen. Through direct interactions, you'll gain a critical understanding of investor expectations, the nuances of business scalability, and the unforgiving realities of market viability. This is your chance to:
+            </p>
+            <ul class="list-disc list-inside text-lg text-slate-700 mb-6 space-y-2">
+                <li>Present your groundbreaking startup ideas to renowned Shark Tank India-funded founders.</li>
+                <li>Receive direct, candid feedback and invaluable mentorship.</li>
+                <li>Refine your entrepreneurial vision with insights from industry trailblazers.</li>
+                <li>Network with a powerful ecosystem of innovators, investors, and fellow aspiring entrepreneurs.</li>
+            </ul>
+            <p class="text-lg text-slate-700 mb-8 leading-relaxed font-semibold">
+                Don't miss this unique chance to elevate your business strategies and set your startup on the path to stardom. Your entrepreneurial journey starts here!
+            </p>
+            <div class="text-center">
+                <button class="bg-amber-500 text-white font-bold py-3 px-8 rounded-lg text-xl hover:bg-amber-600 transition-colors duration-300 shadow-md">
+                    Register Your Interest for iConclave 🚀
+                </button>
+            </div>
+        </section>
+
+        <!-- Timeline & Schedule Section -->
+        <section id="timeline" class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center">iConclave: Event Timeline & Schedule</h2>
+            <p class="text-lg text-slate-700 mb-8 max-w-2xl mx-auto text-center">
+                Here's a comprehensive overview of the iConclave journey, from initial applications to the final pitch day and networking opportunities. Click on each phase to reveal detailed schedules and key activities.
+            </p>
+
+            <div class="space-y-6">
+                <!-- Phase 1: Application Period -->
+                <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <div class="accordion-header bg-slate-50 p-5 flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-slate-800">Phase 1: Idea Submission & Application</h3>
+                        <span class="text-slate-500 text-xl transform rotate-0 transition-transform duration-300 accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content px-5 py-0">
+                        <div class="bg-white p-4 rounded-b-lg">
+                            <h4 class="text-lg font-bold text-amber-600 mb-2">Dates: 4th July - 7th July</h4>
+                            <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                <li>**Launch of Application Portal:** Formal opening for idea submissions.</li>
+                                <li>**Virtual Info Sessions:** Q&A webinars for students on application guidelines and pitch preparation.</li>
+                                <li>**Idea Refinement Workshops:** Optional workshops focusing on problem-solution fit and market research.</li>
+                                <li>**Application Deadline:** Final date for submitting startup ideas.</li>
+                            </ul>
+                            <p class="text-sm text-slate-500 mt-4">_Objective: Identify promising startup ideas and passionate entrepreneurial teams from the MBA batch._</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2: Shortlisting & Mentorship Matching -->
+                <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <div class="accordion-header bg-slate-50 p-5 flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-slate-800">Phase 2: Shortlisting & Mentor Matching</h3>
+                        <span class="text-slate-500 text-xl transform rotate-0 transition-transform duration-300 accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content px-5 py-0">
+                        <div class="bg-white p-4 rounded-b-lg">
+                            <h4 class="text-lg font-bold text-amber-600 mb-2">Dates: [4th July 2025] - [7th July 2025]</h4>
+                            <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                <li>**Initial Review & Shortlisting:** Evaluation of submitted applications by a panel of experts.</li>
+                                <li>**Announcement of Shortlisted Teams:** Teams proceed to the next stage.</li>
+                                <li>**Mentor-Mentee Matching:** Pairing shortlisted teams with relevant Shark Tank-funded founders based on industry and expertise.</li>
+                                <li>**First Mentorship Session (Virtual):** Introduction and goal setting with assigned mentors.</li>
+                            </ul>
+                            <p class="text-sm text-slate-500 mt-4">_Objective: Select high-potential ideas and establish foundational mentorship connections._</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3: Intensive Mentorship & Pitch Preparation -->
+                <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <div class="accordion-header bg-slate-50 p-5 flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-slate-800">Phase 3: Intensive Mentorship & Pitch Refinement</h3>
+                        <span class="text-slate-500 text-xl transform rotate-0 transition-transform duration-300 accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content px-5 py-0">
+                        <div class="bg-white p-4 rounded-b-lg">
+                            <h4 class="text-lg font-bold text-amber-600 mb-2">Dates: [4th July 2025] - [7th July 2025]</h4>
+                            <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                <li>**Weekly Mentorship Sessions:** Dedicated one-on-one or group sessions with founders.</li>
+                                <li>**Pitch Deck Development Workshops:** Hands-on sessions on crafting compelling pitch decks.</li>
+                                <li>**Financial Modeling Clinic:** Expert-led sessions on investor-ready financial projections.</li>
+                                <li>**Mock Pitch Rounds:** Practice pitches with internal faculty/alumni for feedback.</li>
+                            </ul>
+                            <p class="text-sm text-slate-500 mt-4">_Objective: Equip teams with robust business strategies and polished pitch presentations._</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4: iConclave Pitch Day & Networking -->
+                <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <div class="accordion-header bg-slate-50 p-5 flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-slate-800">Phase 4: The Grand iConclave Event</h3>
+                        <span class="text-slate-500 text-xl transform rotate-0 transition-transform duration-300 accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content px-5 py-0">
+                        <div class="bg-white p-4 rounded-b-lg">
+                            <h4 class="text-lg font-bold text-amber-600 mb-2">Date: [iConclave Main Event Date]</h4>
+                            <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                <li>**Morning:** Final pitches to Shark Tank India-funded founders and other investors.</li>
+                                <li>**Lunch:** Networking lunch with founders, investors, and faculty.</li>
+                                <li>**Afternoon:** Focused one-on-one feedback sessions for pitching teams.</li>
+                                <li>**Evening:** Keynote address by a prominent entrepreneur/investor, followed by a networking reception.</li>
+                            </ul>
+                            <p class="text-sm text-slate-500 mt-4">_Objective: Facilitate direct interactions, showcase student potential, and foster valuable connections._</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 5: Post-Event Support & Follow-up -->
+                <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <div class="accordion-header bg-slate-50 p-5 flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-slate-800">Phase 5: Post-Event Support & Growth</h3>
+                        <span class="text-slate-500 text-xl transform rotate-0 transition-transform duration-300 accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content px-5 py-0">
+                        <div class="bg-white p-4 rounded-b-lg">
+                            <h4 class="text-lg font-bold text-amber-600 mb-2">Ongoing</h4>
+                            <ul class="list-disc list-inside text-slate-700 space-y-2">
+                                <li>**Continued Mentorship (Optional):** Opportunities for extended mentor relationships based on mutual interest.</li>
+                                <li>**Access to Incubator Resources:** Support for further idea development and startup launch.</li>
+                                <li>**Alumni Network Integration:** Connecting with the broader entrepreneurial alumni community.</li>
+                                <li>**Funding Facilitation:** Assistance with connecting to further funding opportunities.</li>
+                            </ul>
+                            <p class="text-sm text-slate-500 mt-4">_Objective: Provide sustained support for the continued development and launch of promising student ventures._</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.accordion-icon');
+
+                // Close all other open accordions
+                document.querySelectorAll('.accordion-content.active').forEach(openContent => {
+                    if (openContent !== content) {
+                        openContent.classList.remove('active');
+                        openContent.previousElementSibling.querySelector('.accordion-icon').classList.remove('rotate-180');
+                    }
+                });
+
+                // Toggle the clicked accordion
+                content.classList.toggle('active');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
